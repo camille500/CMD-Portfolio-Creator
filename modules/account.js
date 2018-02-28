@@ -39,7 +39,8 @@ const account = {
       id: tools.generateID(),
       name: req.body.name,
       email: req.body.mail,
-      password: passwordHash.generate(req.body.password)
+      password: passwordHash.generate(req.body.password),
+      about: false,
     };
     userCollection.findOne({'email': data.email}, function(error, user) {
       if(user == undefined || user == null) {

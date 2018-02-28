@@ -16,7 +16,8 @@
   color: white;
   font-weight: 700;
   &:hover {
-    background-color: lighten(black, 10%);
-    border-color: lighten(black, 10%);
+    background-color: lighten(black, 35%);
+    border-color: lighten(black, 35%);
+    cursor: pointer;
   }
 }

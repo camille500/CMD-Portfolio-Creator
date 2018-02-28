@@ -119,8 +119,9 @@ img {
   color: white;
   font-weight: 700; }
   .btn-black:hover {
-    background-color: #1a1a1a;
-    border-color: #1a1a1a; }
+    background-color: #595959;
+    border-color: #595959;
+    cursor: pointer; }
 
 .__main_content form input.invalid, .__main_content form textarea.invalid {
   background-color: rgba(214, 43, 43, 0.6) !important;
@@ -178,7 +179,12 @@ img {
 .__main_content form .form-group {
   margin-bottom: 2.75em;
   max-width: 35em; }
+  .__main_content form .form-group.submit {
+    margin-top: 3.5em; }
+    .__main_content form .form-group.submit .btn-black {
+      padding: 1em 2.5em; }
   .__main_content form .form-group textarea {
+    max-width: 40em;
     line-height: 1.45em; }
 
 .__top_text {
