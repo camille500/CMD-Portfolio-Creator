@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CMD Portfolio</title>
 
-  <link type="text/css" rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-  <link type="text/css" rel="stylesheet" href="/assets/css/style.css" />
+  <link type="text/css" rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="./assets/css/style.css" />
 
 </head>
 <body>
@@ -22,7 +22,7 @@
             <h1>I am <%=user.data.name%></h1>
           </div>
           <div class="col-sm-12 col-md-6 center">
-            <img src="<%=user.data.about.picture%>" class="photo"/>
+            <img src="./assets<%=user.data.about.picture%>" class="photo"/>
           </div>
         </div>
       </section>
@@ -35,7 +35,7 @@
           <% projecten.forEach(function(project, index) { %>
             <div class="row">
               <div data-open='<%=(index + 1)%>' class="col-xs-12 col-sm-6 col-md-4 marginless project">
-                <img src="<%=project.picture%>" />
+                <img src="./assets<%=project.picture%>" />
               </div>
             </div>
           <% }) %>
@@ -72,7 +72,7 @@
             </div> -->
             <% for(let key in user.data.about.skills) { %>
               <div class="item col-xs-12 col-sm-6 col-md-3">
-                <img src="<%= user.data.about.skills[key]['picture'] %>" />
+                <img src="./assets<%= user.data.about.skills[key]['picture'] %>" />
                 <h2><%= user.data.about.skills[key]['name'] %></h2>
                 <p><%= user.data.about.skills[key]['about'] %></p>
               </div>
@@ -93,7 +93,7 @@
           <p class="close" data-close='<%=(index + 1)%>'>X</p>
           <div class="row">
             <div class="col-sm-12 col-md-6">
-              <img src="<%=project.picture%>" class="main-img" />
+              <img src="./assets<%=project.picture%>" class="main-img" />
             </div>
             <div class="col-sm-12 col-md-6">
               <h1><%=project.title%></h1>
@@ -112,9 +112,9 @@
     </div>
   </footer>
 
-  <script type="text/javascript" rel="javascript" src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" rel="javascript" src="/assets/js/vendor/bootstrap.min.js"></script>
-  <script type="text/javascript" rel="javascript" src="/assets/js/script.js"></script>
+  <script type="text/javascript" rel="javascript" src="./assets/js/vendor/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" rel="javascript" src="./assets/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" rel="javascript" src="./assets/js/script.js"></script>
 
 </body>
 </html>

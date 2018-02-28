@@ -17,11 +17,12 @@ const exporter = {
     projecten.forEach(function(project) {
       images.push(path.join(__dirname, '../public/', project.picture));
     });
+    console.log(images);
     // exporter.export(images, req, res, next);
-    exporter.generateHTML(req, res, next);
+    exporter.generateHTML(images, req, res, next);
   },
 
-  generateHTML(req, res, next) {
+  generateHTML(images, req, res, next) {
     const dir = path.join(__dirname, '../views/dashboard/export-template.ejs');
     function generate(path, information, output) {
       fs.readFile(path, 'utf8', function (err, data) {
@@ -39,7 +40,8 @@ const exporter = {
       user: req.session.user,
       projecten: req.session.projecten
     },
-    path.join(__dirname, '../public/template/index.html'));
+    path.join(__dirname, '../public/template/' + req.session.user.data.id + '.html'));
+    exporter.export(images, req, res, next);
   },
 
   export(images, req, res, next) {
@@ -56,12 +58,18 @@ const exporter = {
       console.log('Archive wrote %d bytes', archive.pointer());
     });
 
-    res.attachment('test.zip');
+    res.attachment('CMD Portfolio Template.zip');
     archive.pipe(res);
 
     // Include IMAGE files
     for(const i in images) {
-      archive.file(images[i], { name: '/assets/images/' + path.basename(images[i]) });
+      if(images[i].includes('skills')) {
+        archive.file(images[i], { name: '/assets/images/uploads/skills/' + path.basename(images[i]) });
+      } else if(images[i].includes('profilepic')) {
+        archive.file(images[i], { name: '/assets/images/uploads/profile/' + path.basename(images[i]) });
+      } else if(images[i].includes('projects')) {
+        archive.file(images[i], { name: '/assets/images/uploads/projects/' + path.basename(images[i]) });
+      }
     }
 
     // Include CSS files
@@ -74,6 +82,7 @@ const exporter = {
     archive.file(path.join(__dirname, '../public/template/assets/js/vendor/bootstrap.min.js') , { name: '/assets/js/vendor/bootstrap.min.js' });
     archive.file(path.join(__dirname, '../public/template/assets/js/vendor/jquery-3.3.1.min.js') , { name: '/assets/js/vendor/jquery-3.3.1.min.js' });
 
+    archive.file(path.join(__dirname, '../public/template/' + req.session.user.data.id + '.html') , { name: 'index.html' });
 
     archive.finalize();
   }
