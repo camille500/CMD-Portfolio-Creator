@@ -1,0 +1,65 @@
+.__main_content {
+  form {
+    .__sub_title {
+      font-size: 1.2em;
+      color: #8c8c93;
+    }
+    .__description {
+      margin-top: .5em;
+      font-size: .9em;
+      color: #8c8c93;
+    }
+    .__skill_row {
+      .block-content {
+        padding: 1em;
+        background-color: #f9f9f9;
+        .__skill_image {
+          max-width: 100%;
+          width: 5em;
+          margin-bottom: 1.5em;
+          margin-top: 1.5em;
+        }
+        .__inputfile {
+          width: 0.1px;
+          height: 0.1px;
+          opacity: 0;
+          overflow: hidden;
+          position: absolute;
+          z-index: -1;
+        }
+        .__filelabel {
+          color: white;
+          background-color: black;
+          max-width: 100%;
+          font-size: 1em;
+          font-weight: 500;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          cursor: pointer;
+          position: relative;
+          display: block;
+          margin-top: 3em;
+          overflow: hidden;
+          padding: 0.625em 1.25em;
+          margin-bottom: 1.25em;
+          .__file_image {
+            width: 1.75em;
+            margin-bottom: .2em;
+            margin-right: .5em;
+          }
+          svg {
+            fill: white;
+            margin-right: .5em;
+          }
+        }
+      }
+    }
+    .form-group {
+      margin-bottom: 2.75em;
+      max-width: 35em;
+      textarea {
+        line-height: 1.45em;
+      }
+    }
+  }
+}

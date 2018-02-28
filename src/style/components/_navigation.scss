@@ -1,0 +1,32 @@
+.__sidebar {
+  background-color: $color-orange;
+  .__nav_main {
+    li {
+      &.__logout {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+      a {
+        padding: 1.3em 1.3em;
+        color: white;
+        &.true {
+          background-color: $color-nav-dark;
+          font-weight: 700;
+        }
+        i {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.__header_nav {
+  background-color: black;
+  color: white;
+  h2 {
+    font-size: 1.5em;
+    margin-top: .25em;
+  }
+}

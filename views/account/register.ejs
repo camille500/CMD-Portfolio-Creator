@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs') %>
+
+  <main class="__account container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 __title">
+        <section class="__holder">
+          <h1>Welkom bij de</h1>
+          <h1>Portfolio generator</h1>
+          <h1>Van CMD Amsterdam</h1>
+        </section>
+      </div>
+      <div class="col-xs-12 col-md-6 __form">
+        <div class="__wrapper">
+          <h2>Maak een nieuw account</h2>
+          <form class="__login" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" aria-describedby="Voor- en achternaam" placeholder="Voor- en achternaam*">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="mail" aria-describedby="E-mailadres" placeholder="Voer je e-mailadres in*">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password" placeholder="Voer je wachtwoord in*">
+            </div>
+            <button type="submit" class="btn btn-primary btn-orange">Registreer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<%- include('../partials/footer.ejs') %>
+<%- include('../partials/error.ejs') %>

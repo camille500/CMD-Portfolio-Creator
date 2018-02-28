@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+
+  <title>CMD Portfolio Creator</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="CMD Portfolio Generator">
+  <meta name="author" content="Camille Sébastien Niessen">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../../style/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../../style/plugins/toastr.min.css" />
+  <link rel="stylesheet" id="css-main" href="../../../style/vendor/dashboard.css">
+  <link rel="stylesheet" type="text/css" href="../../../style/index.css" />
+
+</head>
+
+<body>
+
+  <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+  <nav id="sidebar" class="__sidebar">
+    <div id="sidebar-scroll">
+      <div class="sidebar-content">
+        <div class="side-header side-content bg-white-op">
+          <a class="h5 text-white" href="#">Menu</a>
+        </div>
+        <div class="side-content side-content-full">
+          <ul class="nav-main __nav_main">
+            <li><a class="<%= url == '/dashboard' %>" href="/dashboard"><i class="si si-home"></i>Overzicht</a></li>
+            <li class="nav-main-heading"><span class="sidebar-mini-hide">Stappen</span></li>
+            <li><a class="<%= url == '/dashboard/template' %>" href="/dashboard/template"><i class="si si-screen-desktop"></i>Template</a></li>
+            <li><a class="<%= url == '/dashboard/about' %>" href="/dashboard/about"><i class="si si-user"></i>Over jou</a></li>
+            <li><a class="<%= url == '/dashboard/projecten' %>" href="/dashboard/projecten"><i class="si si-picture"></i>Projecten</a></li>
+            <li><a class="<%= url == '/dashboard/preview' %>" href="/dashboard/preview"><i class="si si-eye"></i>Preview</a></li>
+            <li><a class="<%= url == '/dashboard/exporteer' %>" href="/dashboard/exporteer"><i class="si si-cloud-download"></i>Exporteren</a></li>
+            <li class="__logout"><a class="<%= url == '/account/logout' %>" href="/account/logout"><i class="si si-cloud-download"></i>Uitloggen</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header id="header-navbar" class="content-mini content-mini-full __header_nav">
+    <ul class="nav-header pull-left">
+      <h2><%=title%></h2>
+    </ul>
+  </header>
+
+<main id="main-container">
+  <div class="content __main_content">

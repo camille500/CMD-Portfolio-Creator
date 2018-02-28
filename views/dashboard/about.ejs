@@ -1,0 +1,85 @@
+<%- include('../partials/navigation.ejs') %>
+
+<p class="__top_text">Om jouw portfolio te kunnen invullen willen we je eerst beter leren kennen. <br/>
+   Vul in het onderstaande formulier alle vragen in en upload je mooiste foto!</p>
+
+<h2 class="content-heading">Informatie</h2>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="block">
+      <div class="block-content">
+        <form class="form-horizontal push-20-t" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="form-material">
+                <input class="form-control" type="text" id="name" name="name" value='<%=user.data.name%>'>
+                <label for="name">Naam</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="form-material">
+                <input class="form-control" type="file" id="profilepic" name="profilepic">
+                <label for="profilepic">Foto</label>
+              </div>
+            </div>
+          </div>
+          <img class="__profile_preview" />
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="form-material">
+                <textarea class="form-control" id="about" name="about" rows="8"></textarea>
+                <label for="about">About tekst</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="form-material">
+                <textarea class="form-control" id="workexp" name="workexp" rows="8"></textarea>
+                <label for="workexp">Werkervaring tekst</label>
+              </div>
+            </div>
+          </div>
+          <h2 class="__sub_title">Skills</h2>
+          <p class="__description">Voeg hier in totaal 4 skills met afbeelding toe,<br/>bijvoorbeeld Javascript met het bijbehorende logo</p>
+          <div class="row __skill_row">
+            <% for(var i = 1; i <= 4; i++) { %>
+              <div class="col-md-6 col-lg-3">
+                <a class="block block-link-hover3 text-center">
+                  <div class="block-content block-content-full">
+                    <img id='skill_image_<%=i%>' class="__skill_image" />
+                    <div class="col-xs-12">
+                      <div class="form-material">
+                        <input class="form-control" type="text" id="skill_<%=i%>" name="skill_<%=i%>">
+                        <label for="skill_<%=i%>">Skill <%=i%></label>
+                        <input data-set='skill_image_<%=i%>' type="file" name="skill_<%=i%>_image" id="skill_<%=i%>_image" class="__inputfile __skillfile" >
+                        <label class="__filelabel" for="skill_<%=i%>_image">
+                          <img class="__file_image" src="/images/upload.png" />
+                          <span>Upload icon</span>
+                        </label>
+                        <div class="form-material">
+                          <textarea class="form-control" id="skill_<%=i%>_about" name="skill_<%=i%>_about" rows="4"></textarea>
+                          <label for="skill_<%=i%>_image">Toelichting</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            <% } %>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <button class="btn btn-sm btn-black" type="submit">Opslaan</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/navigation-footer.ejs') %>

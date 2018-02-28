@@ -1,2 +1,2 @@
-# CMD-Portfolio-Creator
+# CMD Portfolio sCreator
 The CMD Portfolio Creator

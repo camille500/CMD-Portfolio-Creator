@@ -1,0 +1,93 @@
+.__account {
+  .__title {
+    position: relative;
+    padding: 0;
+    background-color: $color-orange;
+    height: 100vh;
+    .__holder {
+      position: absolute;
+      text-align: left;
+      top: 50%;
+      left: 35%;
+      transform: translate(-35%, -50%);
+      h1 {
+        display: inline-grid;
+        padding: .25em;
+        color: white;
+        background-color: black;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 2em;
+        font-weight: 700;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+    }
+  }
+  .__form {
+    position: relative;
+    padding: 0;
+    background-color: $color-grey;
+    height: 100vh;
+    .__wrapper {
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      transform: translate(-35%, -50%);
+      h2 {
+        color: $title-color;
+      }
+      .__login {
+        max-width: 40em;
+        margin-top: 2em;
+        .__manditory {
+          color: $color-red;
+        }
+        button {
+          float: right;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        input {
+          border: none;
+          border-radius: 0;
+          padding: .75em 1em;
+          width: 25em;
+          &::-webkit-input-placeholder {
+            color: darken($color-grey, 7.5%);
+            font-weight: 500;
+          }
+        }
+      }
+      h2 {
+        font-size: 1.55em;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        color: black;
+      }
+    }
+  }
+}
+
+.__login {
+  .__errorMessage {
+    max-width: 40em;
+  }
+}
+
+.__register {
+  .__errorMessage {
+    max-width: 40em;
+  }
+}
+
+.__dashboard {
+  .__template_1_preview {
+    margin-bottom: 5em;
+    text-align: center;
+  }
+  form {
+    width: 30em;
+    margin: 2em 0;
+  }
+}

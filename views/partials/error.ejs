@@ -1,0 +1,5 @@
+<% if(error.title != false) { %>
+  <script>
+    toastr["error"]("<%=error.message%>", "<%=error.title%>")
+  </script>
+<% } %>
