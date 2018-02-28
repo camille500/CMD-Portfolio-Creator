@@ -22,6 +22,7 @@ function previewSkillImage(event) {
   reader.onload = function(e) {
     image.src = e.target.result;
   }
+  console.log(this.files[0]);
   reader.readAsDataURL(this.files[0]);
 }
 

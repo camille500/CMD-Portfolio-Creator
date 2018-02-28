@@ -7,16 +7,19 @@ const multer = require('multer');
 /* MODULES
 ----------------------------------------- */
 const account = require('../modules/account');
-const globals = require('../modules/global');
+const editor = require('../modules/editor');
 
 /* MULTER FILE UPLOAD SETUP
 ----------------------------------------- */
+let tempFilePath = 'public/images/uploads/temp';
 let storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null,'public/images/uploads')
+    cb(null, tempFilePath)
   },
   filename: function(req, file, cb) {
-    cb(null, file.originalname);
+    const regexp = /(?:\.([^.]+))?$/;
+    const extension = '.' + regexp.exec(file.originalname)[1];
+    cb(null, file.fieldname + extension);
   }
 });
 
@@ -43,9 +46,8 @@ router.get('/about', account.check, function(req, res, next) {
   res.render('dashboard/about');
 });
 
-router.post('/about', account.check, upload.any(), function(req, res, next) {
-  console.log(req.body);
-  console.log(req.files);
+router.post('/about', account.check, upload.any(), editor.about, function(req, res, next) {
+
 });
 
 /* PROJECTEN ROUTE
