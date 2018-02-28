@@ -34,7 +34,7 @@
             <li><a class="<%= url == '/dashboard/template' %>" href="/dashboard/template"><i class="si si-screen-desktop"></i>Template</a></li>
             <li><a class="<%= url == '/dashboard/about' %>" href="/dashboard/about"><i class="si si-user"></i>Over jou</a></li>
             <li><a class="<%= url == '/dashboard/projecten' %>" href="/dashboard/projecten"><i class="si si-picture"></i>Projecten</a></li>
-            <li><a class="<%= url == '/dashboard/preview' %>" href="/dashboard/preview"><i class="si si-eye"></i>Preview</a></li>
+            <li><a class="<%= url == '/dashboard/preview' %>" <%if(user.data.about != false) {%> href="/dashboard/preview" <% } else { %> onclick='previewError()' <% } %>><i class="si si-eye"></i>Preview</a></li>
             <li><a class="<%= url == '/dashboard/exporteer' %>" href="/dashboard/exporteer"><i class="si si-cloud-download"></i>Exporteren</a></li>
             <li class="__logout"><a class="<%= url == '/account/logout' %>" href="/account/logout"><i class="si si-cloud-download"></i>Uitloggen</a></li>
           </ul>
@@ -42,6 +42,12 @@
       </div>
     </div>
   </nav>
+
+  <script>
+  function previewError() {
+    toastr["error"]("Je kunt de preview nog niet openen voordat je de 'Over jou' informatie hebt ingevuld.", "Niet beschikbaar")
+  }
+  </script>
 
   <header id="header-navbar" class="content-mini content-mini-full __header_nav">
     <ul class="nav-header pull-left">

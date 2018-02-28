@@ -5,4 +5,10 @@
 
 <h2 class="content-heading">Jouw projecten</h2>
 
+<% if(user.data.projects != false) { %>
+
+<% } else { %>
+  <h3>Je hebt nog geen projecten</h3>
+<% } %>
+
 <%- include('../partials/navigation-footer.ejs') %>
