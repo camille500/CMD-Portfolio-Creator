@@ -1,0 +1,48 @@
+<%- include('../partials/navigation.ejs') %>
+
+<p class="__top_text">Op deze pagina kun je een nieuw project toevoegen aan je portfolio. <br/>
+   Het is de bedoeling dat je na het exporteren zelf nog extra's toevoegd!</p>
+
+<h2 class="content-heading">Nieuw project</h2>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="block">
+      <div class="block-content">
+        <form class="form-horizontal push-20-t" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="form-material">
+                <input class="form-control" type="text" id="title" name="title">
+                <label for="title">Titel</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="form-material">
+                <input class="form-control" type="file" id="project_picture" name="project_picture">
+                <label for="project_picture">Afbeelding</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="form-material">
+                <textarea class="form-control" id="description" name="description" rows="10"></textarea>
+                <label for="description">Omschrijving</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group submit">
+            <div class="col-xs-12">
+              <button class="btn btn-sm btn-black" id="submitAbout" type="submit">Project toevoegen</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/navigation-footer.ejs') %>

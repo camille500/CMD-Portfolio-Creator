@@ -26,7 +26,6 @@
               </div>
             </div>
           </div>
-          <img class="__profile_preview" />
           <div class="form-group">
             <div class="col-xs-12">
               <div class="form-material">
@@ -73,21 +72,24 @@
           </div>
           <h2 class="__sub_title">Education</h2>
           <p class="__description">Maak hier per voltooide opleiding (minimaal 1) een item aan,<br/>deze worden in een lijst getoond.</p>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-material">
-                <input class="form-control" type="text" id="study" name="study">
-                <label for="name">Studie</label>
+          <div class="__education_row">
+            <input class="hidden" name='total_education' id='total_education' value='1' />
+            <div class="row __education">
+              <div class="col-sm-6">
+                <div class="form-material">
+                  <input class="form-control" type="text" id="study_1" name="study_1">
+                  <label for="study_1">Studie</label>
+                </div>
               </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="form-material">
-                <input class="form-control" type="text" id="year" name="year">
-                <label for="year">Jaar</label>
+              <div class="col-sm-3">
+                <div class="form-material">
+                  <input class="form-control" type="text" id="year_1" name="year_1">
+                  <label for="year_1">Jaar</label>
+                </div>
               </div>
-            </div>
-            <div class="col-sm-3">
-              <a>+</a>
+              <div class="col-sm-3">
+                <span class="_add_new">+</span>
+              </div>
             </div>
           </div>
           <div class="form-group submit">

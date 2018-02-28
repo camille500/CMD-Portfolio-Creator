@@ -10,6 +10,12 @@ img {
 .__no_padding {
   padding: 0; }
 
+.hidden {
+  display: none; }
+
+.__zero_opacity {
+  opacity: 0; }
+
 .__sidebar {
   background-color: #fea201; }
   .__sidebar .__nav_main li.__logout {
@@ -116,12 +122,17 @@ img {
   border-radius: 0;
   background-color: black;
   border-color: black;
-  color: white;
+  color: white !important;
   font-weight: 700; }
+  .btn-black.disabled:hover {
+    cursor: not-allowed !important; }
   .btn-black:hover {
     background-color: #595959;
     border-color: #595959;
     cursor: pointer; }
+
+.__main_content form input[type="file"] {
+  box-shadow: none; }
 
 .__main_content form input.invalid, .__main_content form textarea.invalid {
   background-color: rgba(214, 43, 43, 0.6) !important;
@@ -135,6 +146,18 @@ img {
   margin-top: .5em;
   font-size: .9em;
   color: #8c8c93; }
+
+.__main_content form .__education_row .__education {
+  margin-top: 2.5em; }
+  .__main_content form .__education_row .__education ._add_new {
+    padding: .3em .75em;
+    background-color: black;
+    font-size: 2em;
+    color: white; }
+    .__main_content form .__education_row .__education ._add_new:hover {
+      cursor: pointer;
+      background-color: #595959;
+      border-color: #595959; }
 
 .__main_content form .__skill_row .block-content {
   padding: 1em;
@@ -191,6 +214,7 @@ img {
   margin-top: 1.2em; }
 
 .toast.toast-error,
-.toast.toast-warning {
+.toast.toast-warning,
+.toast.toast-info {
   width: 30em !important;
   opacity: .9; }

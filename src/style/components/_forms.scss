@@ -1,5 +1,10 @@
 .__main_content {
   form {
+    input {
+      &[type="file"] {
+        box-shadow: none;
+      }
+    }
     input, textarea {
       &.invalid {
         background-color: rgba(214, 43, 43, 0.6) !important;
@@ -14,6 +19,22 @@
       margin-top: .5em;
       font-size: .9em;
       color: #8c8c93;
+    }
+    .__education_row {
+      .__education {
+        margin-top: 2.5em;
+        ._add_new {
+          padding: .3em .75em;
+          background-color: black;
+          font-size: 2em;
+          color: white;
+          &:hover {
+            cursor: pointer;
+            background-color: lighten(black, 35%);
+            border-color: lighten(black, 35%);
+          }
+        }
+      }
     }
     .__skill_row {
       .block-content {

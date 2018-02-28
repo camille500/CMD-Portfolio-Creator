@@ -5,10 +5,28 @@
 
 <h2 class="content-heading">Jouw projecten</h2>
 
-<% if(user.data.projects != false) { %>
-
+<% if(projecten.length > 0) { %>
+  <% projecten.forEach(function(project) { %>
+    <div class="block col-xs-12 col-sm-6 col-md-5 col-lg-4 __no_padding">
+      <img class="img-responsive" src="<%=project.picture%>" alt="">
+      <div class="block-content block-content-full">
+        <h3 class="h4 push-10"><%=project.title%></h3>
+        <p class="text-gray-dark"><%=project.description%></p>
+        <a class="btn btn-sm btn-black __zero_opacity" onclick="showTemplateError()" href="javascript:void(0)">Preview</a>
+        <a class="btn btn-sm btn-black pull-right" onclick="showTemplateError()" href="javascript:void(0)">Gekozen template</a>
+      </div>
+    </div>
+  <% }) %>
+  <a class="btn btn-black" href="/dashboard/projecten/nieuw/<%=projecten.length + 1%>">Voeg een project toe</a>
 <% } else { %>
-  <h3>Je hebt nog geen projecten</h3>
+  <p>Zo te zien heb je nog geen projecten aangemaakt!</p>
+  <a class="btn btn-black" href="/dashboard/projecten/nieuw/1">Maak je eerste project</a>
+<% } %>
+
+<% if(error += false) { %>
+  <script>
+    toastr["error"]("<%=error.message%>", "<%=error.title%>")
+  </script>
 <% } %>
 
 <%- include('../partials/navigation-footer.ejs') %>

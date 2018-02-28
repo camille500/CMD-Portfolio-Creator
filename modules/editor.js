@@ -5,7 +5,6 @@ const editor = {
   about(req, res, next) {
     const files = req.files;
     let destination = '';
-    req.session.pictures = {};
     const data = {
       for: req.session.user.data.id,
       name: req.body.name,
@@ -28,8 +27,16 @@ const editor = {
           name: req.body.skill_4,
           about: req.body.skill_4_about,
         }
-      }
+      },
+      education: {}
     }
+    for(var i = 1; i < (Number(req.body.total_education) + 1); i++) {
+      var test = 'study_' + i;
+      data.education['' + i + ''] = {
+        title: req.body['study_'+ i],
+        year: req.body['year_'+ i],
+      }
+    };
     files.forEach(function(file, index) {
       const regexp = /(?:\.([^.]+))?$/;
       const extension = '.' + regexp.exec(file.originalname)[1];
@@ -61,8 +68,71 @@ const editor = {
         next();
       });
     });
+  },
+
+  project(req, res, next) {
+    const files = req.files;
+    let destination = '';
+    const data = {
+      id: tools.generateID(),
+      for: req.session.user.data.id,
+      title: req.body.title,
+      description: req.body.description
+    };
+    files.forEach(function(file, index) {
+      const regexp = /(?:\.([^.]+))?$/;
+      const extension = '.' + regexp.exec(file.originalname)[1];
+      const filename = data.id + '_' + file.fieldname + extension;
+      const destination = 'public/images/uploads/projects/' + filename;
+      data.picture = '/images/uploads/projects/' + filename;
+      fs.rename(file.path, destination);
+      editor.saveProject(data, req, res, next);
+    });
+  },
+
+  saveProject(data, req, res, next) {
+    const projectCollection = db.collection('projects');
+    projectCollection.findOne({'id': data.id}, function(error, project) {
+      if(project == undefined || project == null) {
+        projectCollection.save(data);
+        res.redirect('/dashboard/projecten');
+      } else {
+        res.locals.error = {
+          title: 'Project bestaat al',
+          message: 'Een project met deze titel bestaat al, probeer het opnieuw.'
+        };
+        res.render('dashboard/projecten');
+      }
+    });
+  },
+
+  allProjects(req, res, next) {
+    req.session.projecten = [];
+    const projectCollection = db.collection('projects');
+    projectCollection.find({'for': req.session.user.data.id}, function(error, projecten) {
+      projecten.toArray(function (error, projectArray) {
+        projectArray.forEach(function(project) {
+          req.session.projecten.push(project);
+        });
+        next();
+      })
+    });
   }
 
 }
+
+const tools = {
+
+  generateID() {
+    var timestamp = new Date().getTime();
+    var random = Math.floor((Math.random() * 100) + 1);
+    var total = 0;
+    for(var index = 0; index < random; index++) {
+      total += Math.floor((Math.random() * 3927) + 1);
+    }
+    return timestamp * total;
+  }
+
+};
 
 module.exports = editor;

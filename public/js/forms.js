@@ -3,6 +3,7 @@
 function initialize() {
   setFileUploadListeners();
   setAboutSubmit();
+  setAddNew();
 }
 
 function setFileUploadListeners() {
@@ -68,6 +69,25 @@ function setAboutSubmit() {
       if(invalid.length == 0) {
         document.getElementsByTagName('form')[0].submit();
       }
+    });
+  }
+}
+
+function setAddNew() {
+  if(document.getElementsByClassName('_add_new')) {
+    var addButton = document.getElementsByClassName('_add_new')[0];
+    var actualAmount = document.getElementsByClassName('_add_new').length + 1;
+    addButton.addEventListener('click', function() {
+      var newElement = '<div class="col-sm-6"><div class="form-material"><input class="form-control" type="text" id="study_' + actualAmount  + '" name="study_' + actualAmount  + '"><label for="study_' + actualAmount  + '">Studie</label></div></div><div class="col-sm-3"><div class="form-material"><input class="form-control" type="text" id="year_' + actualAmount  + '" name="year_' + actualAmount  + '"><label for="year_' + actualAmount  + '">Jaar</label></div></div><div class="col-sm-3"><span class="_add_new">+</span></div>';
+      addButton.remove();
+      var div = document.createElement('div');
+      div.classList = 'row __education';
+      div.innerHTML = newElement;
+      document.getElementsByClassName('__education_row')[0].appendChild(div);
+      document.getElementById('total_education').value = Number(document.getElementById('total_education').value) + 1;
+      setTimeout(function () {
+        document.getElementsByClassName('_add_new')[0].addEventListener('click', setAddNew);
+      }, 100);
     });
   }
 }

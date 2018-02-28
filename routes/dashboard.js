@@ -52,14 +52,27 @@ router.post('/about', account.check, upload.any(), editor.about, function(req, r
 
 /* PROJECTEN ROUTE
 ----------------------------------------- */
-router.get('/projecten', account.check, function(req, res, next) {
+router.get('/projecten', account.check, editor.allProjects, function(req, res, next) {
+  res.locals.projecten = req.session.projecten;
+  res.locals.error = false;
   res.locals.title = 'Projecten';
   res.render('dashboard/projecten');
 });
 
+router.get('/projecten/nieuw/:id', account.check, function(req, res, next) {
+  res.locals.title = 'Nieuw project';
+  res.render('dashboard/new-project');
+});
+
+router.post('/projecten/nieuw/:id', account.check, upload.any(), editor.project, function(req, res, next) {
+  res.locals.title = 'Nieuw project';
+  res.render('dashboard/new-project');
+});
+
 /* PREVIEW ROUTE
 ----------------------------------------- */
-router.get('/preview', account.check, function(req, res, next) {
+router.get('/preview', account.check, editor.allProjects, function(req, res, next) {
+  res.locals.projecten = req.session.projecten;
   res.locals.title = 'Preview';
   res.render('dashboard/preview');
 });
