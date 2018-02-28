@@ -122,6 +122,10 @@ img {
     background-color: #1a1a1a;
     border-color: #1a1a1a; }
 
+.__main_content form input.invalid, .__main_content form textarea.invalid {
+  background-color: rgba(214, 43, 43, 0.6) !important;
+  padding: .75em; }
+
 .__main_content form .__sub_title {
   font-size: 1.2em;
   color: #8c8c93; }
@@ -161,6 +165,8 @@ img {
     overflow: hidden;
     padding: 0.625em 1.25em;
     margin-bottom: 1.25em; }
+    .__main_content form .__skill_row .block-content .__filelabel.invalid {
+      background-color: #d62b2b; }
     .__main_content form .__skill_row .block-content .__filelabel .__file_image {
       width: 1.75em;
       margin-bottom: .2em;
@@ -179,4 +185,5 @@ img {
   margin-top: 1.2em; }
 
 .toast.toast-error {
-  width: 30em !important; }
+  width: 30em !important;
+  opacity: .9; }

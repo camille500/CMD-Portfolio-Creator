@@ -47,7 +47,7 @@ router.get('/about', account.check, function(req, res, next) {
 });
 
 router.post('/about', account.check, upload.any(), editor.about, function(req, res, next) {
-
+  res.redirect('/dashboard/about');
 });
 
 /* PROJECTEN ROUTE

@@ -30,7 +30,7 @@
           <div class="form-group">
             <div class="col-xs-12">
               <div class="form-material">
-                <textarea class="form-control" id="about" name="about" rows="8"></textarea>
+                <textarea class="form-control" id="about" name="about" rows="8"><%=user.data.about.about%></textarea>
                 <label for="about">About tekst</label>
               </div>
             </div>
@@ -38,7 +38,7 @@
           <div class="form-group">
             <div class="col-xs-12">
               <div class="form-material">
-                <textarea class="form-control" id="workexp" name="workexp" rows="8"></textarea>
+                <textarea class="form-control" id="workexp" name="workexp" rows="8"><%=user.data.about.experience%></textarea>
                 <label for="workexp">Werkervaring tekst</label>
               </div>
             </div>
@@ -50,18 +50,18 @@
               <div class="col-md-6 col-lg-3">
                 <a class="block block-link-hover3 text-center">
                   <div class="block-content block-content-full">
-                    <img id='skill_image_<%=i%>' class="__skill_image" />
+                    <img id='skill_image_<%=i%>' src='<%=user.data.about.skills[i]["picture"]%>' class="__skill_image" />
                     <div class="col-xs-12">
                       <div class="form-material">
-                        <input class="form-control" type="text" id="skill_<%=i%>" name="skill_<%=i%>">
+                        <input class="form-control" type="text" id="skill_<%=i%>" value='<%=user.data.about.skills[i]["name"]%>' name="skill_<%=i%>">
                         <label for="skill_<%=i%>">Skill <%=i%></label>
                         <input data-set='skill_image_<%=i%>' type="file" name="skill_<%=i%>_image" id="skill_<%=i%>_image" class="__inputfile __skillfile" >
-                        <label class="__filelabel" for="skill_<%=i%>_image">
+                        <label class="__filelabel skill_<%=i%>_image" for="skill_<%=i%>_image">
                           <img class="__file_image" src="/images/upload.png" />
                           <span>Upload icon</span>
                         </label>
                         <div class="form-material">
-                          <textarea class="form-control" id="skill_<%=i%>_about" name="skill_<%=i%>_about" rows="4"></textarea>
+                          <textarea class="form-control" id="skill_<%=i%>_about" name="skill_<%=i%>_about" rows="4"><%=user.data.about.skills[i]["about"]%></textarea>
                           <label for="skill_<%=i%>_image">Toelichting</label>
                         </div>
                       </div>
@@ -71,9 +71,25 @@
               </div>
             <% } %>
           </div>
+          <h2 class="__sub_title">Education</h2>
+          <p class="__description">Maak hier per voltooide opleiding (minimaal 1) een item aan,<br/>deze worden in een lijst getoond.</p>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-material">
+                <input class="form-control" type="text" id="study" name="study">
+                <label for="name">Studie</label>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-material">
+                <input class="form-control" type="text" id="year" name="year">
+                <label for="year">Jaar</label>
+              </div>
+            </div>
+          </div>
           <div class="form-group">
             <div class="col-xs-12">
-              <button class="btn btn-sm btn-black" type="submit">Opslaan</button>
+              <button class="btn btn-sm btn-black" id="submitAbout" type="submit">Opslaan</button>
             </div>
           </div>
         </form>

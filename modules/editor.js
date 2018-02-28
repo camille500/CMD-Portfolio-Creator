@@ -36,10 +36,10 @@ const editor = {
       const filename = req.session.user.data.id + '_' + file.fieldname + extension;
       if(file.fieldname == 'profilepic') {
         destination = 'public/images/uploads/profile/' + filename;
-        data.picture = destination;
+        data.picture = '/images/uploads/profile/' + filename;
       } else {
         destination = 'public/images/uploads/skills/' + filename;
-        data.skills[(index).toString()]['picture'] = destination;
+        data.skills[(index).toString()]['picture'] = '/images/uploads/skills/' + filename;
       }
       fs.rename(file.path, destination);
     })
@@ -51,7 +51,15 @@ const editor = {
     userCollection.findOne({'id': data.for}, function(error, user) {
       let updates = user;
       updates.about = data;
-      console.log(updates);
+      delete updates['_id'];
+      req.session.user.data = updates;
+      userCollection.update({
+        id: data.for
+      }, updates, {
+        upsert: false
+      }, function(err, doc) {
+        next();
+      });
     });
   }
 

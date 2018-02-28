@@ -1,5 +1,11 @@
 .__main_content {
   form {
+    input, textarea {
+      &.invalid {
+        background-color: rgba(214, 43, 43, 0.6) !important;
+        padding: .75em;
+      }
+    }
     .__sub_title {
       font-size: 1.2em;
       color: #8c8c93;
@@ -35,6 +41,9 @@
           font-weight: 500;
           text-overflow: ellipsis;
           white-space: nowrap;
+          &.invalid {
+            background-color: rgba(214, 43, 43, 1);
+          }
           cursor: pointer;
           position: relative;
           display: block;
