@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/camille500/CMD-Portfolio-Creator#readme",
   "dependencies": {
+    "archiver": "^2.1.1",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
     "dotenv": "^5.0.0",

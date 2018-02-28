@@ -8,6 +8,7 @@ const multer = require('multer');
 ----------------------------------------- */
 const account = require('../modules/account');
 const editor = require('../modules/editor');
+const exporter = require('../modules/export');
 
 /* MULTER FILE UPLOAD SETUP
 ----------------------------------------- */
@@ -79,7 +80,7 @@ router.get('/preview', account.check, editor.allProjects, function(req, res, nex
 
 /* EXPORTEER ROUTE
 ----------------------------------------- */
-router.get('/exporteer', account.check, function(req, res, next) {
+router.get('/exporteer', account.check, editor.allProjects, exporter.init, function(req, res, next) {
   res.locals.title = 'Exporteren';
   res.render('dashboard/exporteer');
 });
