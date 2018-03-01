@@ -65,6 +65,16 @@ router.get('/projecten/nieuw/:id', account.check, function(req, res, next) {
   res.render('dashboard/new-project');
 });
 
+router.get('/projecten/delete/:id', account.check, editor.deleteProject, editor.allProjects, function(req, res, next) {
+  res.locals.title = 'Projecten';
+  res.locals.projecten = req.session.projecten;
+  res.locals.error = {
+    title: 'Project verwijderd',
+    message: 'Het project is succesvol verwijders en uit je overzicht gehaald.'
+  }
+  res.render('dashboard/projecten');
+});
+
 router.post('/projecten/nieuw/:id', account.check, upload.any(), editor.project, function(req, res, next) {
   res.locals.title = 'Nieuw project';
   res.render('dashboard/new-project');

@@ -6,17 +6,28 @@
 <h2 class="content-heading">Jouw projecten</h2>
 
 <% if(projecten.length > 0) { %>
-  <% projecten.forEach(function(project) { %>
-    <div class="block col-xs-12 col-sm-6 col-md-5 col-lg-4 __no_padding">
-      <img class="img-responsive" src="<%=project.picture%>" alt="">
-      <div class="block-content block-content-full">
-        <h3 class="h4 push-10"><%=project.title%></h3>
-        <p class="text-gray-dark"><%=project.description%></p>
-        <a class="btn btn-sm btn-black __zero_opacity" onclick="showTemplateError()" href="javascript:void(0)">Preview</a>
-        <a class="btn btn-sm btn-black pull-right" onclick="showTemplateError()" href="javascript:void(0)">Bewerken</a>
+  <div class="row">
+    <% projecten.forEach(function(project) { %>
+      <div class="col-md-4 animated fadeIn __project" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+        <span class="block block-link-hover2">
+          <!-- <img class="img-responsive" src="<%=project.picture%>" alt=""> -->
+          <div class="__project_image" style="background: url('<%=project.picture%>') center center no-repeat"></div>
+          <div class="block-content">
+            <!-- <div class="font-s12 push">
+              <em class="pull-right">10 min</em>
+              <span class="text-primary">Sara Holland</span> on July 16, 2015
+            </div> -->
+            <h4 class="push-10"><%=project.title%></h4>
+            <p><%=project.intro.substr(0, 100)%></p>
+            <div class="__buttons">
+              <a class="btn btn-sm btn-black" onclick="showTemplateError()" href="/dashboard/projecten/delete/<%=project.id%>">Verwijderen</a>
+              <a class="btn btn-sm btn-black pull-right" onclick="showTemplateError()" href="javascript:void(0)">Bewerken</a>
+            </div>
+          </div>
+        </span>
       </div>
-    </div>
-  <% }) %>
+    <% }) %>
+  </div>
   <a class="btn btn-black" href="/dashboard/projecten/nieuw/<%=projecten.length + 1%>">Voeg een project toe</a>
 <% } else { %>
   <p>Zo te zien heb je nog geen projecten aangemaakt!</p>
@@ -25,7 +36,7 @@
 
 <% if(error += false) { %>
   <script>
-    toastr["error"]("<%=error.message%>", "<%=error.title%>")
+    toastr["success"]("<%=error.message%>", "<%=error.title%>")
   </script>
 <% } %>
 

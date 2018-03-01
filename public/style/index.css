@@ -210,6 +210,15 @@ img {
     max-width: 40em;
     line-height: 1.45em; }
 
+.__project .__project_image {
+  background-size: cover !important;
+  height: 14em; }
+
+.__project .block-content {
+  background-color: white;
+  padding-bottom: 1em;
+  margin-bottom: 2.5em; }
+
 .__top_text {
   margin-top: 1.2em; }
 

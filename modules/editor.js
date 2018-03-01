@@ -77,6 +77,7 @@ const editor = {
       id: tools.generateID(),
       for: req.session.user.data.id,
       title: req.body.title,
+      intro: req.body.intro,
       description: req.body.description
     };
     files.forEach(function(file, index) {
@@ -103,6 +104,21 @@ const editor = {
         };
         res.render('dashboard/projecten');
       }
+    });
+  },
+
+  deleteProject(req, res, next) {
+    const projectCollection = db.collection('projects');
+    let id = req.params.id.toString();
+    projectCollection.find({'for': req.session.user.data.id}, function(error, projecten) {
+      projecten.toArray(function (error, projectArray) {
+        projectArray.forEach(function(project) {
+          if(project.id == req.params.id) {
+            projectCollection.deleteOne(project);
+          }
+        });
+        next();
+      });
     });
   },
 
