@@ -65,6 +65,11 @@ router.get('/projecten/nieuw/:id', account.check, function(req, res, next) {
   res.render('dashboard/new-project');
 });
 
+router.get('/projecten/bewerk/:id', account.check, editor.getProject, function(req, res, next) {
+  res.locals.title = 'Bewerk project';
+  res.render('dashboard/edit-project');
+});
+
 router.get('/projecten/delete/:id', account.check, editor.deleteProject, editor.allProjects, function(req, res, next) {
   res.locals.title = 'Projecten';
   res.locals.projecten = req.session.projecten;

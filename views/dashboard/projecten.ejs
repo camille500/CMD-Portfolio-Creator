@@ -13,15 +13,11 @@
           <!-- <img class="img-responsive" src="<%=project.picture%>" alt=""> -->
           <div class="__project_image" style="background: url('<%=project.picture%>') center center no-repeat"></div>
           <div class="block-content">
-            <!-- <div class="font-s12 push">
-              <em class="pull-right">10 min</em>
-              <span class="text-primary">Sara Holland</span> on July 16, 2015
-            </div> -->
             <h4 class="push-10"><%=project.title%></h4>
             <p><%=project.intro.substr(0, 100)%></p>
             <div class="__buttons">
               <a class="btn btn-sm btn-black" onclick="showTemplateError()" href="/dashboard/projecten/delete/<%=project.id%>">Verwijderen</a>
-              <a class="btn btn-sm btn-black pull-right" onclick="showTemplateError()" href="javascript:void(0)">Bewerken</a>
+              <a class="btn btn-sm btn-black pull-right" onclick="showTemplateError()" href="/dashboard/projecten/bewerk/<%=project.id%>">Bewerken</a>
             </div>
           </div>
         </span>

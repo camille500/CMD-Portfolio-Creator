@@ -10,9 +10,20 @@ body {
 }
 
 .about ul li {
-  padding: 1em 1em;
+  padding: 0;
   background-color: rgb(245, 245, 245);
   margin-bottom: .5em;
+}
+
+.about ul li .col-sm-2 {
+  background-color: #fecb2f;
+  padding: 1em;
+  font-weight: 700;
+  color: white;
+}
+
+.about ul li .col-sm-10 {
+  padding: 1em;
 }
 
 nav a {
@@ -190,10 +201,20 @@ footer p {
   display: none;
   width: 97.5%;
   height: 96vh;
-  background-color: rgba(224, 224, 224, 0.98);
+  background-color: rgba(241, 241, 241, 0.99);
   position: fixed;
   left: 1em;
   top: 1em;
+}
+
+.project-section strong {
+  display: block;
+  margin-top: 1.25em;
+  margin-left: .5em;
+}
+
+.project-section p {
+  margin-left: .5em;
 }
 
 @media only screen and (max-width: 770px) {

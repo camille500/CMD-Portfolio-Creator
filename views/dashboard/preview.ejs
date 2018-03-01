@@ -32,13 +32,13 @@
   <main>
     <div class="container-fluid projects-container">
         <section class="projects">
+          <div class="row">
           <% projecten.forEach(function(project, index) { %>
-            <div class="row">
               <div data-open='<%=(index + 1)%>' class="col-xs-12 col-sm-6 col-md-4 marginless project">
                 <img src="<%=project.picture%>" />
               </div>
-            </div>
           <% }) %>
+        </div>
         </section>
       </div>
       <div class="container-fluid about-container">
@@ -54,10 +54,10 @@
                 <% for(let key in user.data.about.education) { %>
                   <li>
                     <div class="row">
-                      <div class="col-sm-3">
+                      <div class="col-sm-2">
                         <%= user.data.about.education[key]['year'] %>
                       </div>
-                      <div class="col-sm-9">
+                      <div class="col-sm-10">
                         <%= user.data.about.education[key]['title'] %>
                       </div>
                     </div>

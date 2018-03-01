@@ -6,7 +6,6 @@ const ejs = require('ejs');
 const exporter = {
 
   init(req, res, next) {
-
     const images = [];
     const about = req.session.user.data.about;
     const projecten = req.session.projecten;
@@ -17,8 +16,6 @@ const exporter = {
     projecten.forEach(function(project) {
       images.push(path.join(__dirname, '../public/', project.picture));
     });
-    console.log(images);
-    // exporter.export(images, req, res, next);
     exporter.generateHTML(images, req, res, next);
   },
 
@@ -41,7 +38,9 @@ const exporter = {
       projecten: req.session.projecten
     },
     path.join(__dirname, '../public/template/' + req.session.user.data.id + '.html'));
-    exporter.export(images, req, res, next);
+    setTimeout(function () {
+      exporter.export(images, req, res, next);
+    }, 500);
   },
 
   export(images, req, res, next) {
@@ -82,6 +81,7 @@ const exporter = {
     archive.file(path.join(__dirname, '../public/template/assets/js/vendor/bootstrap.min.js') , { name: '/assets/js/vendor/bootstrap.min.js' });
     archive.file(path.join(__dirname, '../public/template/assets/js/vendor/jquery-3.3.1.min.js') , { name: '/assets/js/vendor/jquery-3.3.1.min.js' });
 
+    console.log(req.session.user.data.id);
     archive.file(path.join(__dirname, '../public/template/' + req.session.user.data.id + '.html') , { name: 'index.html' });
 
     archive.finalize();

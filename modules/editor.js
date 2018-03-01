@@ -107,6 +107,20 @@ const editor = {
     });
   },
 
+  getProject(req, res, next) {
+    const projectCollection = db.collection('projects');
+    projectCollection.find({'for': req.session.user.data.id}, function(error, projecten) {
+      projecten.toArray(function (error, projectArray) {
+        projectArray.forEach(function(project) {
+          if(project.id == req.params.id) {
+            res.locals.project = project;
+          }
+        });
+        next();
+      });
+    });
+  },
+
   deleteProject(req, res, next) {
     const projectCollection = db.collection('projects');
     let id = req.params.id.toString();
