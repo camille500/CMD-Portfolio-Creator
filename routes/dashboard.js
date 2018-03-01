@@ -28,7 +28,8 @@ let upload = multer({storage: storage});
 
 /* MAIN ROUTE
 ----------------------------------------- */
-router.get('/', account.check, function(req, res, next) {
+router.get('/', account.check, editor.allProjects, function(req, res, next) {
+  res.locals.projects = req.session.projecten;
   res.locals.title = 'Overzicht';
   res.render('dashboard/index');
 });
@@ -66,6 +67,11 @@ router.get('/projecten/nieuw/:id', account.check, function(req, res, next) {
 });
 
 router.get('/projecten/bewerk/:id', account.check, editor.getProject, function(req, res, next) {
+  res.locals.title = 'Bewerk project';
+  res.render('dashboard/edit-project');
+});
+
+router.post('/projecten/bewerk/:id', account.check, editor.deleteProject, upload.any(), editor.project, function(req, res, next) {
   res.locals.title = 'Bewerk project';
   res.render('dashboard/edit-project');
 });

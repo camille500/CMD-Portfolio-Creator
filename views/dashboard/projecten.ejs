@@ -30,10 +30,10 @@
   <a class="btn btn-black" href="/dashboard/projecten/nieuw/1">Maak je eerste project</a>
 <% } %>
 
-<% if(error += false) { %>
+<%- include('../partials/navigation-footer.ejs') %>
+
+<% if(error != false) { %>
   <script>
     toastr["success"]("<%=error.message%>", "<%=error.title%>")
   </script>
 <% } %>
-
-<%- include('../partials/navigation-footer.ejs') %>
