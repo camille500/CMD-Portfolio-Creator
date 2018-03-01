@@ -74,23 +74,45 @@
           <p class="__description">Maak hier per voltooide opleiding (minimaal 1) een item aan,<br/>deze worden in een lijst getoond.</p>
           <div class="__education_row">
             <input class="hidden" name='total_education' id='total_education' value='1' />
-            <div class="row __education">
-              <div class="col-sm-6">
-                <div class="form-material">
-                  <input class="form-control" type="text" id="study_1" name="study_1">
-                  <label for="study_1">Studie</label>
+            <%if(user.data.about != false) {%>
+              <%for(let key in user.data.about.education) {%>
+                <div class="row __education">
+                  <div class="col-sm-6">
+                    <div class="form-material">
+                      <input class="form-control" type="text" value="<%=user.data.about.education[key].title%>" id="study_1" name="study_1">
+                      <label for="study_1">Studie</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-material">
+                      <input class="form-control" type="text" value="<%=user.data.about.education[key].year%>" id="year_1" name="year_1">
+                      <label for="year_1">Jaar</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <span class="_add_new">+</span>
+                  </div>
+                </div>
+              <% }%>
+            <% } else { %>
+              <div class="row __education">
+                <div class="col-sm-6">
+                  <div class="form-material">
+                    <input class="form-control" type="text" id="study_1" name="study_1">
+                    <label for="study_1">Studie</label>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-material">
+                    <input class="form-control" type="text" id="year_1" name="year_1">
+                    <label for="year_1">Jaar</label>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <span class="_add_new">+</span>
                 </div>
               </div>
-              <div class="col-sm-3">
-                <div class="form-material">
-                  <input class="form-control" type="text" id="year_1" name="year_1">
-                  <label for="year_1">Jaar</label>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <span class="_add_new">+</span>
-              </div>
-            </div>
+            <% } %>
           </div>
           <div class="form-group submit">
             <div class="col-xs-12">
