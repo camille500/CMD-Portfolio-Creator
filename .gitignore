@@ -58,4 +58,4 @@ typings/
 .env
 
 /public/images/uploads
-/public/template
+/public/template/*.html

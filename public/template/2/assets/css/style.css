@@ -1,0 +1,317 @@
+body {
+  position: relative;
+}
+
+.white {
+  background-color: white!important;
+}
+
+.about ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 1em;
+}
+
+.about ul li {
+  padding: 0;
+  background-color: rgb(245, 245, 245);
+  margin-bottom: .5em;
+}
+
+.about ul li .col-sm-2 {
+  background-color: #2980b9;
+  padding: 1em;
+  font-weight: 700;
+  color: white;
+}
+
+.about ul li .col-sm-10 {
+  padding: 1em;
+}
+
+nav a {
+  color: white;
+}
+
+.container-fluid {
+  padding: 1em 2em;
+  background-color: #ecf0f1;
+}
+
+header .container-fluid {
+  /* background-color: black; */
+  background: url("../images/geo.png") repeat center center;
+  background-size: contain;
+}
+
+section.header {
+  padding: 2em 0;
+  background-size: contain;
+  width: 100%;
+  background: ("../images/geo.png") repeat center center;
+  /* background-color: red; */
+}
+
+section.header h1 {
+  font-size: 4.5em;
+  margin-left: .5em;
+  color: #757575;
+}
+
+@media only screen and (min-width: 575px) {
+  .__education .row {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  section.header h1 {
+    font-size: 6.5em;
+  }
+  .photo {
+    margin-top: 4em;
+  }
+}
+
+.about p {
+  margin-top: 1em;
+  max-width: 90%;
+}
+
+.about h1, .projects h1 {
+  color: #2980b9;
+  letter-spacing: 4px;
+  font-weight: 300;
+}
+
+.marginless {
+  text-align: center;
+  position: relative;
+  margin: 0;
+  padding: 1em;
+  /* border: 5px solid rgb(241, 241, 241); */
+}
+
+.marginless img {
+  cursor: pointer;
+  position: relative;
+  transition: .75s;
+  max-width: 100%;
+}
+
+.marginless img:hover {
+  transform: scale3d(1.1,1.1,1);
+  z-index: 9999;
+}
+
+.row.skills {
+  margin: 4em auto;
+}
+
+.row.skills img {
+  max-width: 75px;
+  max-height: 75px;
+  margin-bottom: .75em;
+}
+
+.row.skills .item {
+  text-align: center;
+  padding: 1em;
+}
+
+.row.skills .item p {
+  max-width: 100%;
+  color: #888888;
+}
+
+.row.skills h2 {
+  font-size: 1.5em;
+  margin-top: .5em;
+}
+
+.row.skills .intro {
+  margin-top: 1.5em;
+  padding: .5em;
+}
+
+.photo {
+  border-radius: 50%;
+  width: 20em;
+  height: 20em;
+}
+
+@media only screen and (max-width: 1200px) {
+  .photo {
+    width: 17.5em;
+    height: 17.5em;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .photo {
+    margin-top: 2.5em;
+  }
+  section.header {
+    padding: 2em 0;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.cmd-orange {
+  color: #2980b9!important;
+}
+
+.projects-container {
+  background-color: #FFFFFF;
+}
+
+section.about, section.socials {
+  padding: 2em;
+  background-color: #FFFFFF!important;
+  margin: 0 auto;
+  margin-top: 2em;
+  width: 95%;
+}
+
+.about-container {
+  padding: 1em;
+}
+
+.socials ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.socials ul li {
+  display: inline-block;
+  padding: 0 15px;
+}
+
+@media only screen and (max-width: 580px) {
+  .socials ul li {
+    margin-bottom: 1em;
+  }
+  .socials ul li:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+footer {
+  padding: 1em;
+  background-color: #ecf0f1;
+}
+
+footer .container-fluid {
+  background-color: white!important;
+}
+
+footer p {
+  color: #888888;
+  margin-top: 1em;
+  text-align: center;
+}
+
+/* .overlay {
+  display: none;
+  position: absolute;
+  top: .5em;
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 100%;
+  height: 100%;
+  padding: 3em 0em;
+}
+
+.project:hover .overlay {
+  display: block;
+} */
+
+.project-section {
+  overflow-y: auto;
+  z-index: 9999;
+  display: none;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(241, 241, 241, 0.99);
+  position: absolute;
+  left: 0em;
+  top: 0em;
+  bottom: 0;
+}
+
+.project-section .__picture {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.__picture img {
+  max-width: 100%;
+}
+
+.__info {
+  padding: 2em 1em;
+  margin: 0 auto;
+}
+
+.project-section strong {
+  display: block;
+  margin-top: 1.25em;
+  margin-left: .5em;
+  max-width: 40em;
+}
+
+.project-section p {
+  margin-left: .5em;
+  max-width: 40em;
+}
+
+@media only screen and (max-width: 770px) {
+  .project-section strong {
+    max-width: 100%
+  }
+  .project-section p {
+    max-width: 100%
+  }
+  .project-section img {
+    margin: 3em 0;
+    max-width: 100%;
+  }
+  .__info {
+    padding-top: .2em;
+    padding-left: 2%;
+  }
+}
+
+.project-section section {
+  padding: 1em 2em;
+  position: relative;
+}
+
+.project-section section p {
+  margin-top: 1em;
+}
+
+.overlay .check {
+  margin-top: 2em;
+  color: white!important;
+}
+
+.close {
+  position: absolute;
+  right: 1em;
+  top: .75em;
+  margin-top: 0!important;
+  z-index: 9999;
+  font-size: 2em;
+  color: black
+}
+
+.main-img {
+  max-width: 100%;
+  margin-top: .75em;
+}
