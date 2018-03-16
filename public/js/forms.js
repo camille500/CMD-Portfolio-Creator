@@ -3,7 +3,7 @@
 function initialize() {
   setFileUploadListeners();
   setAboutSubmit();
-  setAddNew();
+  addButton();
   removeButtons();
   setSkillImageDeleteButtons();
 }
