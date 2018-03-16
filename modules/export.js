@@ -20,7 +20,7 @@ const exporter = {
   },
 
   generateHTML(images, req, res, next) {
-    const dir = path.join(__dirname, '../views/dashboard/export-template.ejs');
+    const dir = path.join(__dirname, '../views/dashboard/exporteer/' + req.session.template + '.ejs');
     function generate(path, information, output) {
       fs.readFile(path, 'utf8', function (err, data) {
         if (err) { console.log(err); return false; }
@@ -72,14 +72,14 @@ const exporter = {
     }
 
     // Include CSS files
-    archive.file(path.join(__dirname, '../public/template/assets/css/style.css') , { name: '/assets/css/style.css' });
-    archive.file(path.join(__dirname, '../public/template/assets/css/bootstrap.min.css') , { name: '/assets/css/bootstrap.min.css' });
-    archive.file(path.join(__dirname, '../public/template/assets/css/custom.css') , { name: '/assets/css/custom.css' });
+    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/css/style.css') , { name: '/assets/css/style.css' });
+    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/css/bootstrap.min.css') , { name: '/assets/css/bootstrap.min.css' });
+    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/css/custom.css') , { name: '/assets/css/custom.css' });
 
     // Include JS files
-    archive.file(path.join(__dirname, '../public/template/assets/js/script.js') , { name: '/assets/js/script.js' });
-    archive.file(path.join(__dirname, '../public/template/assets/js/vendor/bootstrap.min.js') , { name: '/assets/js/vendor/bootstrap.min.js' });
-    archive.file(path.join(__dirname, '../public/template/assets/js/vendor/jquery-3.3.1.min.js') , { name: '/assets/js/vendor/jquery-3.3.1.min.js' });
+    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/js/script.js') , { name: '/assets/js/script.js' });
+    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/js/vendor/bootstrap.min.js') , { name: '/assets/js/vendor/bootstrap.min.js' });
+    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/js/vendor/jquery-3.3.1.min.js') , { name: '/assets/js/vendor/jquery-3.3.1.min.js' });
 
     console.log(req.session.user.data.id);
     archive.file(path.join(__dirname, '../public/template/' + req.session.user.data.id + '.html') , { name: 'index.html' });

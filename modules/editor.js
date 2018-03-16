@@ -28,7 +28,10 @@ const editor = {
           about: req.body.skill_4_about,
         }
       },
-      education: {}
+      education: {},
+      linkedin: req.body.linkedin,
+      behance: req.body.behance,
+      dribbble: req.body.dribbble,
     }
     for(var i = 1; i < (Number(req.body.total_education) + 1); i++) {
       var test = 'study_' + i;
@@ -56,6 +59,7 @@ const editor = {
   saveAbout(data, req, res, next) {
     const userCollection = db.collection('users');
     userCollection.findOne({'id': data.for}, function(error, user) {
+      if(error) { console.log(error) }
       let updates = user;
       updates.about = data;
       delete updates['_id'];
@@ -68,6 +72,25 @@ const editor = {
         next();
       });
     });
+  },
+
+  setTemplate(req, res, next) {
+    const userCollection = db.collection('users');
+    userCollection.findOne({'id': req.session.user.data.id}, function(error, user) {
+      if(error) { console.log(error) }
+      let data = user;
+      data.template = req.params.id;
+      delete data['_id'];
+      req.session.user.data = data;
+      req.session.template = req.params.id;
+      userCollection.update({
+        id: req.session.user.data.id
+      }, data, {
+        upsert: false
+      }, function(err, doc) {
+        next();
+      });
+    })
   },
 
   project(req, res, next) {

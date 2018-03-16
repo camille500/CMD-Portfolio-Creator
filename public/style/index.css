@@ -16,6 +16,12 @@ img {
 .__zero_opacity {
   opacity: 0; }
 
+.__bottom {
+  margin-bottom: 3em; }
+
+._m_r {
+  margin-right: 1em; }
+
 .__sidebar {
   background-color: #fea201; }
   .__sidebar .__nav_main li.__logout {
@@ -161,7 +167,8 @@ img {
 
 .__main_content form .__skill_row .block-content {
   padding: 1em;
-  background-color: #f9f9f9; }
+  background-color: #f9f9f9;
+  min-height: 28.5em; }
   .__main_content form .__skill_row .block-content .__skill_image {
     max-width: 100%;
     width: 5em;

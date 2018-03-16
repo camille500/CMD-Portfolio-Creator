@@ -4,15 +4,35 @@
    Op dit moment is er één template, in de toekomst volgen er meer.</p>
 
 <h2 class="content-heading">Templates</h2>
+<div class="row">
+  <div class="block col-xs-12 col-sm-6 col-md-5 col-lg-4 __no_padding _m_r">
+    <img class="img-responsive" src="/images/screen1.png" alt="">
+    <div class="block-content block-content-full">
+      <h3 class="h4 push-10">CMD Basis template</h3>
+      <p class="text-gray-dark">Dit is het CMD basis template, je kunt hem eerst even bekijken door op preview in het menu te klikken.
+      Je kunt na het exporteren natuurlijk altijd nog je eigen stijl toepassen!</p>
+      <a class="btn btn-sm btn-black __zero_opacity" onclick="showTemplateError()" href="javascript:void(0)">Preview</a>
+      <%if(user.data.template == 1) { %>
+        <a class="btn btn-sm btn-black pull-right" onclick="showTemplateError()" href="javascript:void(0)">Gekozen template</a>
+      <% } else { %>
+        <a class="btn btn-sm btn-black pull-right" href="/dashboard/template/pick/1">Kies dit template</a>
+      <% } %>
+    </div>
+  </div>
 
-<div class="block col-xs-12 col-sm-6 col-md-5 col-lg-4 __no_padding">
-  <img class="img-responsive" src="/images/template_1.jpg" alt="">
-  <div class="block-content block-content-full">
-    <h3 class="h4 push-10">CMD Basis template</h3>
-    <p class="text-gray-dark">Dit is het CMD basis template, je kunt hem eerst even bekijken door op preview te klikken.
-    Je kunt na het exporteren natuurlijk altijd nog je eigen stijl toepassen!</p>
-    <a class="btn btn-sm btn-black __zero_opacity" onclick="showTemplateError()" href="javascript:void(0)">Preview</a>
-    <a class="btn btn-sm btn-black pull-right" onclick="showTemplateError()" href="javascript:void(0)">Gekozen template</a>
+  <div class="block col-xs-12 col-sm-6 col-md-5 col-lg-4 __no_padding">
+    <img class="img-responsive" src="/images/screen2.png" alt="">
+    <div class="block-content block-content-full">
+      <h3 class="h4 push-10">Grey & blue template</h3>
+      <p class="text-gray-dark">Dit is het Grey & Blue template, je kunt hem eerst even bekijken door op preview in het menu te klikken.
+      Je kunt na het exporteren natuurlijk altijd nog je eigen stijl toepassen!</p>
+      <a class="btn btn-sm btn-black __zero_opacity" onclick="showTemplateError()" href="javascript:void(0)">Preview</a>
+      <%if(user.data.template == 2) { %>
+        <a class="btn btn-sm btn-black pull-right" onclick="showTemplateError()" href="javascript:void(0)">Gekozen template</a>
+      <% } else { %>
+        <a class="btn btn-sm btn-black pull-right" href="/dashboard/template/pick/2">Kies dit template</a>
+      <% } %>
+    </div>
   </div>
 </div>
 

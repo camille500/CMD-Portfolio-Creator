@@ -42,6 +42,7 @@ const account = {
       password: passwordHash.generate(req.body.password),
       about: false,
       projects: false,
+      template: 0
     };
     userCollection.findOne({'email': data.email}, function(error, user) {
       if(user == undefined || user == null) {

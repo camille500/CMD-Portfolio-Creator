@@ -41,6 +41,10 @@ router.get('/template', account.check, function(req, res, next) {
   res.render('dashboard/template');
 });
 
+router.get('/template/pick/:id', account.check, editor.setTemplate, function(req, res, next) {
+  res.redirect('/dashboard/template');
+});
+
 /* ABOUT ROUTE
 ----------------------------------------- */
 router.get('/about', account.check, function(req, res, next) {
@@ -96,7 +100,7 @@ router.post('/projecten/nieuw/:id', account.check, upload.any(), editor.project,
 router.get('/preview', account.check, editor.allProjects, function(req, res, next) {
   res.locals.projecten = req.session.projecten;
   res.locals.title = 'Preview';
-  res.render('dashboard/preview');
+  res.render('dashboard/preview/' + req.session.template);
 });
 
 /* EXPORTEER ROUTE

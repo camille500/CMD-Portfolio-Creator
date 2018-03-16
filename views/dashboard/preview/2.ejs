@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CMD Portfolio</title>
 
-  <link type="text/css" rel="stylesheet" href="/template/assets/css/bootstrap.min.css" />
-  <link type="text/css" rel="stylesheet" href="/template/assets/css/style.css" />
+  <link type="text/css" rel="stylesheet" href="/template/2/assets/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="/template/2/assets/css/style.css" />
 
 </head>
 <body>
@@ -22,7 +22,7 @@
             <h1>I am <%=user.data.name%></h1>
           </div>
           <div class="col-sm-12 col-md-6 center">
-            <img src="<%=user.data.about.picture%>" class="photo"/>
+            <img src="<%=user.data.about.picture%>" class="photo img-circle"/>
           </div>
         </div>
       </section>
@@ -48,7 +48,7 @@
               <h1>About</h1>
               <p><%=user.data.about.about%></p>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 __education">
               <h1>Education</h1>
               <ul>
                 <% for(let key in user.data.about.education) { %>
@@ -85,17 +85,25 @@
             </div>
           </div>
         </section>
+        <section class="socials">
+          <ul>
+            <li><a href="mailto:<%=user.data.email%>?subject=Reactie%20op%20je%20portfolio">Send me an e-mail</a></li>
+            <%if(user.data.about.behance.length > 0){%><li><a href="<%=user.data.about.behance%>" target="_blank">Behance</a></li><%}%>
+            <%if(user.data.about.dribbble.length > 0){%><li><a href="<%=user.data.about.dribbble%>" target="_blank">Dribbble</a></li><%}%>
+            <%if(user.data.about.linkedin.length > 0){%><li><a href="<%=user.data.about.linkedin%>" target="_blank">LinkedIn</a></li><%}%>
+          </ul>
+        </section>
     </div>
 
     <% projecten.forEach(function(project, index) { %>
-      <div class="project-section" id="project_1">
+      <div class="project-section" id="project_<%=(index + 1)%>">
         <section>
           <p class="close" data-close='<%=(index + 1)%>'>X</p>
           <div class="row">
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-8 __picture">
               <img src="<%=project.picture%>" class="main-img" />
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-8 __info">
               <h1><%=project.title%></h1>
               <strong><%=project.intro%></strong>
               <p><%=project.description%></p>
@@ -113,9 +121,9 @@
     </div>
   </footer>
 
-  <script type="text/javascript" rel="javascript" src="/template/assets/js/vendor/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" rel="javascript" src="/template/assets/js/vendor/bootstrap.min.js"></script>
-  <script type="text/javascript" rel="javascript" src="/template/assets/js/script.js"></script>
+  <script type="text/javascript" rel="javascript" src="/template/2/assets/js/vendor/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" rel="javascript" src="/template/2/assets/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" rel="javascript" src="/template/2/assets/js/script.js"></script>
 
 </body>
 </html>
