@@ -42,7 +42,7 @@ router.get('/template', account.check, function(req, res, next) {
 });
 
 router.get('/template/pick/:id', account.check, editor.setTemplate, function(req, res, next) {
-  res.redirect('/dashboard/template');
+  res.redirect('/dashboard');
 });
 
 /* ABOUT ROUTE

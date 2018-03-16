@@ -17,7 +17,7 @@ img {
   opacity: 0; }
 
 .__bottom {
-  margin-bottom: 3em; }
+  margin-bottom: 1.5em; }
 
 ._m_r {
   margin-right: 1em; }
@@ -153,17 +153,19 @@ img {
   font-size: .9em;
   color: #8c8c93; }
 
-.__main_content form .__education_row .__education {
-  margin-top: 2.5em; }
-  .__main_content form .__education_row .__education ._add_new {
-    padding: .3em .75em;
-    background-color: black;
-    font-size: 2em;
-    color: white; }
-    .__main_content form .__education_row .__education ._add_new:hover {
-      cursor: pointer;
-      background-color: #595959;
-      border-color: #595959; }
+.__main_content form .__education_row {
+  margin-bottom: 1.5em; }
+  .__main_content form .__education_row .__education {
+    margin-top: 2.5em; }
+    .__main_content form .__education_row .__education ._add_new {
+      padding: .3em .75em;
+      background-color: black;
+      font-size: 2em;
+      color: white; }
+      .__main_content form .__education_row .__education ._add_new:hover {
+        cursor: pointer;
+        background-color: #595959;
+        border-color: #595959; }
 
 .__main_content form .__skill_row .block-content {
   padding: 1em;

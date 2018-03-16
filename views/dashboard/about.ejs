@@ -55,7 +55,7 @@
                         <input class="form-control" type="text" id="skill_<%=i%>" value='<%if(user.data.about != false) {%><%=user.data.about.skills[i]["name"]%><%}%>' name="skill_<%=i%>">
                         <label for="skill_<%=i%>">Skill <%=i%></label>
                         <input data-set='skill_image_<%=i%>' type="file" name="skill_<%=i%>_image" id="skill_<%=i%>_image" class="__inputfile __skillfile" >
-                        <label class="__filelabel skill_<%=i%>_image" for="skill_<%=i%>_image">
+                        <label class="__filelabel skill_<%=i%>_image" for="skill_<%=i%>_image" data-delete="<%=i - 1%>">
                           <img class="__file_image" src="/images/upload.png" />
                           <span>Upload icon</span>
                         </label>

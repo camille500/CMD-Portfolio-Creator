@@ -72,7 +72,7 @@ const exporter = {
     }
 
     // Include CSS files
-    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/css/style.css') , { name: '/assets/css/style.css' });
+    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/css/style_export.css') , { name: '/assets/css/style.css' });
     archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/css/bootstrap.min.css') , { name: '/assets/css/bootstrap.min.css' });
     archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/css/custom.css') , { name: '/assets/css/custom.css' });
 
@@ -81,7 +81,9 @@ const exporter = {
     archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/js/vendor/bootstrap.min.js') , { name: '/assets/js/vendor/bootstrap.min.js' });
     archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/js/vendor/jquery-3.3.1.min.js') , { name: '/assets/js/vendor/jquery-3.3.1.min.js' });
 
-    console.log(req.session.user.data.id);
+    // Include IMG files
+    archive.file(path.join(__dirname, '../public/template/' + req.session.template + '/assets/images/geo.png') , { name: '/assets/images/geo.png' });
+
     archive.file(path.join(__dirname, '../public/template/' + req.session.user.data.id + '.html') , { name: 'index.html' });
 
     archive.finalize();

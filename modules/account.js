@@ -16,6 +16,7 @@ const account = {
         if(passwordCheck == true) {
           req.session.user = {};
           req.session.user.data = user;
+          req.session.template = req.session.user.data.template;
           req.session.user.login = true;
           res.redirect('/dashboard');
         } else {
