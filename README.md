@@ -44,7 +44,7 @@ npm install
 ```
 
 ### Setup .env variables
-Ask the Playwall for all the variables
+Ask me for all the variables
 ```
 SESSION_SECRET={session_secret}
 MONGODB_URI={mongoDB_url}
